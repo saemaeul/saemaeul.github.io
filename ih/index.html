@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFINITE HYPERDRIVE</title>
+    <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('https://webstatic.mihoyo.com/common/clgm-static/sr/fonts/zh-cn.ttf') format('truetype');
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'CustomFont', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .track {
+            text-align: center;
+        }
+        
+        .track-info {
+            margin-bottom: 1.5rem;
+        }
+        
+        .track-title {
+            font-size: 2.2rem;
+            color: #a8e6ff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(168, 230, 255, 0.5);
+        }
+        
+        .track-artist {
+            font-size: 1.3rem;
+            color: #b19cd9;
+        }
+        
+        .audio-player {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        
+        audio {
+            width: 100%;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        audio::-webkit-media-controls-panel {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .track-controls {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .track-controls button {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-family: 'CustomFont', Arial, sans-serif;
+            font-size: 0.9rem;
+        }
+        
+        .track-controls button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .track-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="track">
+            <div class="track-info">
+                <div class="track-title">INFINITE HYPERDRIVE</div>
+                <div class="track-artist">Srav3R / Kobaryo / 电音联盟 / 音波狂潮 / HARDCORE TANO*C</div>
+            </div>
+            
+            <div class="audio-player">
+                <audio controls>
+                    <source src="https://music.163.com/song/media/outer/url?id=2650748269" type="audio/mpeg">
+                </audio>
+            </div>
+            
+            <div class="track-controls">
+                <button onclick="downloadTrack()">下载</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadTrack() {
+            window.open('https://music.163.com/song/media/outer/url?id=2650748269', '_blank');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.querySelector('audio');
+            
+            audio.addEventListener('play', function() {
+                document.querySelector('.track-title').style.textShadow = '0 0 15px rgba(168, 230, 255, 0.8)';
+            });
+            
+            audio.addEventListener('pause', function() {
+                document.querySelector('.track-title').style.textShadow = '0 0 10px rgba(168, 230, 255, 0.5)';
+            });
+        });
+    </script>
+</body>
+</html>
